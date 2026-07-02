@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: saidao-audio
+Version: 0.1.0
+Summary: Local speaker recognition MVP for m3u8 livestream audio
+Requires-Python: <3.14,>=3.10
+Requires-Dist: numpy>=1.24
+Requires-Dist: soundfile>=0.12
+Requires-Dist: webrtcvad-wheels>=2.0.10
+Requires-Dist: resemblyzer>=0.1.4
+Requires-Dist: librosa>=0.9.1
+Requires-Dist: torch>=1.0.1
+Requires-Dist: scipy>=1.2.1
+Provides-Extra: test
+Requires-Dist: pytest>=8.0; extra == "test"

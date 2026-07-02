@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "saidao-audio"
+version = "0.1.0"
+description = "Local speaker recognition MVP for m3u8 livestream audio"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+  "numpy>=1.24",
+  "soundfile>=0.12",
+  "webrtcvad-wheels>=2.0.10",
+  "resemblyzer>=0.1.4",
+  "librosa>=0.9.1",
+  "torch>=1.0.1",
+  "scipy>=1.2.1",
+  "fastapi>=0.111",
+  "uvicorn[standard]>=0.30",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[project.scripts]
+saidao-audio = "saidao_audio.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

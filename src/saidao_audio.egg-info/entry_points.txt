@@ -1,0 +1,2 @@
+[console_scripts]
+saidao-audio = saidao_audio.cli:main

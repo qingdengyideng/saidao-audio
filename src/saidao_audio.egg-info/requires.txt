@@ -1,0 +1,10 @@
+numpy>=1.24
+soundfile>=0.12
+webrtcvad-wheels>=2.0.10
+resemblyzer>=0.1.4
+librosa>=0.9.1
+torch>=1.0.1
+scipy>=1.2.1
+
+[test]
+pytest>=8.0

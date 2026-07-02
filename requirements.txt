@@ -1,0 +1,15 @@
+# Install dependencies in order:
+# 1. pip install --no-deps resemblyzer
+# 2. pip install numpy soundfile webrtcvad-wheels librosa torch==2.6.0+cpu scipy pytest --index-url https://download.pytorch.org/whl/cpu
+# 3. pip install --no-deps -e .
+
+numpy>=1.24
+soundfile>=0.12
+webrtcvad-wheels>=2.0.10
+librosa>=0.9.1
+torch==2.6.0+cpu; sys_platform == "win32"
+torch>=2.6.0; sys_platform != "win32"
+scipy>=1.2.1
+fastapi>=0.111
+uvicorn[standard]>=0.30
+pytest>=8.0
