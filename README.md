@@ -196,6 +196,10 @@ DELETE /jobs/{job_id}
 
 API jobs also delete processed chunks by default. Send `"delete_chunks": false` in `POST /jobs` only when you need debug audio files. Send `chunk_dir` only if you intentionally want to control where a specific job writes audio chunks.
 
+## Docker deployment
+
+See [docs/deploy-docker.md](docs/deploy-docker.md) for Alibaba Cloud / Docker deployment commands.
+
 ## Notes for low-spec servers
 
 - Keep one Python process alive; do not reload the model for every chunk.
