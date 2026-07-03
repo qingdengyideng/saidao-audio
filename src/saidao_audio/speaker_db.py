@@ -7,6 +7,10 @@ from typing import Iterable
 
 import numpy as np
 
+from .logging_config import get_logger
+
+logger = get_logger(__name__)
+
 
 @dataclass(frozen=True)
 class MatchResult:
@@ -107,6 +111,7 @@ class SpeakerDatabase:
             json.dumps(payload, ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
+        logger.info("声纹数据库已保存 path=%s speakers=%d", target, len(self.speakers))
 
     @classmethod
     def load(cls, path: str | Path) -> "SpeakerDatabase":
@@ -115,4 +120,5 @@ class SpeakerDatabase:
             name: np.array(vector, dtype=np.float32)
             for name, vector in payload["speakers"].items()
         }
+        logger.debug("声纹数据库已加载 path=%s speakers=%d threshold=%.2f", path, len(speakers), payload.get("threshold", 0.78))
         return cls(speakers=speakers, threshold=float(payload.get("threshold", 0.78)))

@@ -5,10 +5,15 @@ import wave
 
 import numpy as np
 
+from .logging_config import get_logger
+
+logger = get_logger(__name__)
+
 try:
     import webrtcvad
 except ImportError:  # pragma: no cover - depends on local installation
     webrtcvad = None
+    logger.warning("webrtcvad 未安装，VAD 将降级为基于能量的检测方式")
 
 
 def _read_pcm16_mono(path: str | Path) -> tuple[bytes, int]:

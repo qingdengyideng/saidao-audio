@@ -3,6 +3,8 @@ FROM python:3.11-slim
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV PIP_NO_CACHE_DIR=1
+# 日志级别，可选 DEBUG/INFO/WARNING/ERROR，运行时可通过 -e LOG_LEVEL=DEBUG 覆盖
+ENV LOG_LEVEL=INFO
 
 WORKDIR /app
 
@@ -33,4 +35,4 @@ RUN mkdir -p /app/data/enroll /app/data/chunks
 
 EXPOSE 8000
 
-CMD ["uvicorn", "saidao_audio.api:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "saidao_audio.api:app", "--host", "0.0.0.0", "--port", "8000", "--access-log"]
